@@ -1,0 +1,148 @@
+ <!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riki Hardianto | Game Developer</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+  <div class="aurora-bg"></div>
+
+  <nav>
+    <div class="logo">Riki<span class="dot">.</span></div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="home" class="section home">
+    <div class="home-text" data-aos="fade-right">
+      <p class="greeting">⚡ GREETINGS, I AM ⚡</p>
+      <h1>Riki Hardianto<span class="dot">.</span></h1>
+      <h2 id="typing-text" class="neon-text"></h2>
+      <p class="tagline">Creative Game Developer | Web3 & Multiplayer Enthusiast</p>
+      <button class="btn glow-btn" onclick="scrollToContact()">Contact Me</button>
+    </div>
+  </section>
+
+  <section id="about" class="section about">
+    <canvas id="aboutParticles"></canvas>
+    <div class="about-container">
+      <h2 data-aos="fade-up">About<span class="dot">.</span></h2>
+      
+      <div class="about-grid">
+        <div class="about-card about-text" data-aos="fade-right">
+          <i class="fas fa-user-astronaut"></i>
+          <h3>Who I Am</h3>
+          <p>
+            Saya <b>Riki Hardianto</b>, seorang <b>Game Developer</b> yang fokus pada pembuatan 
+            pengalaman interaktif dan imersif. Saya menguasai <b>Unity</b>, <b>Unreal Engine</b>, 
+            dan <b>Phaser</b> untuk membuat game berkualitas dengan desain yang engaging.
+          </p>
+        </div>
+        
+        <div class="about-card skills-card" data-aos="fade-left">
+          <i class="fas fa-code-branch"></i>
+          <h3>My Core Stack</h3>
+          <div class="skill-tags">
+            <span>Unity</span><span>Unreal</span><span>Phaser</span><span>C#</span><span>Python</span>
+            <span>HTML5</span><span>Game Design</span><span>3D Modelling</span><span>Git</span><span>Shader</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certificates" class="section certificates">
+    <h2 data-aos="zoom-in">Certificates<span class="dot">.</span></h2>
+    <div class="add-certificate" data-aos="fade-up">
+      <input type="text" id="cert-name" placeholder="Nama Sertifikat" required>
+      <input type="text" id="cert-issuer" placeholder="Penerbit" required>
+      <input type="url" id="cert-link" placeholder="Link Sertifikat (optional)">
+      <div class="file-upload-wrapper">
+        <input type="file" id="cert-image" accept="image/*">
+        <label for="cert-image" class="custom-file-upload">
+          <i class="fas fa-upload"></i> Pilih Gambar Sertifikat
+        </label>
+        <span id="cert-image-name">Belum ada file dipilih</span>
+      </div>
+      <button class="btn" onclick="addCertificate()">Tambah Sertifikat</button>
+    </div>
+    <div class="project-grid" id="certificate-grid" data-aos="fade-up"></div>
+  </section>
+  
+  <section id="projects" class="section projects">
+    <h2 data-aos="zoom-in">Projects<span class="dot">.</span></h2>
+    <div class="add-project" data-aos="fade-up">
+      <input type="text" id="game-name" placeholder="Nama Game/Project" required>
+      <input type="text" id="game-desc" placeholder="Deskripsi Singkat" required>
+      <input type="text" id="game-tools" placeholder="Tools/Teknologi (cth: Unity, C#, Multiplayer)" required>
+      <input type="url" id="game-link" placeholder="Link Project (cth: Itch.io, GitHub, Video)">
+      
+      <div class="file-upload-wrapper project-file-wrapper">
+        <input type="file" id="project-image" accept="image/*">
+        <label for="project-image" class="custom-file-upload">
+          <i class="fas fa-image"></i> Pilih Cover Project
+        </label>
+        <span id="project-image-name">Belum ada file dipilih</span>
+      </div>
+
+      <button class="btn" onclick="addProject()">Tambah Project</button>
+    </div>
+    <div class="project-grid" id="project-grid" data-aos="fade-up"></div>
+  </section>
+
+  <section id="contact" class="section contact">
+    <h2 data-aos="fade-up">Contact<span class="dot">.</span></h2>
+    <p data-aos="fade-right">Ingin berkolaborasi atau punya ide game seru? Hubungi saya di:</p>
+    
+    <div class="contact-grid" data-aos="fade-up">
+      <a href="mailto:rikihardianto.dev@gmail.com" class="contact-card">
+        <i class="fas fa-envelope"></i>
+        <h3>Email</h3>
+        <span>rikihardianto.dev@gmail.com</span>
+      </a>
+
+      <a href="https://wa.me/6281311757392" target="_blank" class="contact-card whatsapp">
+        <i class="fab fa-whatsapp"></i>
+        <h3>WhatsApp</h3>
+        <span>0813-1175-7392</span>
+      </a>
+      
+      <a href="https://www.linkedin.com/in/rikihardianto" target="_blank" class="contact-card linkedin">
+        <i class="fab fa-linkedin"></i>
+        <h3>LinkedIn</h3>
+        <span>/in/rikihardianto</span>
+      </a>
+      
+      <a href="https://discord.com/users/1360046003801165987" target="_blank" class="contact-card discord">
+        <i class="fab fa-discord"></i>
+        <h3>Discord</h3>
+        <span>rikihardianto#xxxx</span> 
+      </a>
+      <a href="https://github.com/rikihardiantoTI" target="_blank" class="contact-card github">
+        <i class="fab fa-github"></i>
+        <h3>GitHub</h3>
+        <span>/rikihardiantoTI</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Riki Hardianto | Game Developer Portfolio</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="particles-about.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1200, once: true });</script>
+</body>
+</html>

@@ -1,0 +1,457 @@
+ :root {
+  --primary: #00e0ff;
+  --text: #e0faff;
+  --shadow: 0 0 20px rgba(0, 224, 255, 0.8);
+  --bg-dark: #040b14;
+  --transition: 0.3s ease;
+  --wa-color: #25d366; 
+  --linkedin-color: #0a66c2; 
+  --discord-color: #7289da; 
+}
+
+/* (Initial styles: *, body, .aurora-bg, @keyframes, nav, .logo, nav ul, .section) */
+
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ===== Aurora Background (UNTOUCHED) ===== */
+.aurora-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 100%, rgba(0,200,255,0.2), transparent 60%),
+              radial-gradient(circle at 80% 0%, rgba(0,100,255,0.3), transparent 60%),
+              radial-gradient(circle at 20% 0%, rgba(255,255,255,0.05), transparent 70%);
+  animation: auroraMove 15s infinite alternate ease-in-out;
+  z-index: 0;
+  filter: blur(60px);
+}
+@keyframes auroraMove {
+  0% { background-position: 0 0, 100% 100%, 50% 0; }
+  100% { background-position: 100% 100%, 0 0, 50% 100%; }
+}
+
+/* ===== Navbar (UNTOUCHED) ===== */
+nav {
+  position: fixed; top: 0; width: 100%;
+  background: rgba(10,20,30,0.8);
+  backdrop-filter: blur(10px);
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 3rem; z-index: 10;
+  border-bottom: 1px solid rgba(0,255,255,0.2);
+}
+.logo { font-size: 1.7rem; color: var(--primary); text-shadow: var(--shadow); font-weight: bold; }
+nav ul { display: flex; list-style: none; gap: 2rem; }
+nav ul li a { color: var(--text); text-decoration: none; transition: var(--transition); }
+nav ul li a:hover { color: var(--primary); text-shadow: var(--shadow); }
+
+/* ===== Sections & Buttons (UNTOUCHED) ===== */
+.section { min-height: 100vh; padding: 8rem 10%; position: relative; z-index: 2; }
+.btn {
+  margin-top: 1.5rem; padding: .8rem 1.5rem;
+  border: 1px solid var(--primary); background: transparent;
+  color: var(--primary); border-radius: 8px; cursor: pointer;
+  box-shadow: var(--shadow); transition: var(--transition);
+}
+.btn:hover { background: var(--primary); color: #000; box-shadow: 0 0 25px var(--primary); }
+
+/* Custom Glow Button Style */
+.glow-btn {
+  box-shadow: 0 0 15px var(--primary); /* Stronger initial glow */
+}
+.glow-btn:hover { 
+  box-shadow: 0 0 35px var(--primary), 0 0 50px var(--primary); /* Ultra glow on hover */
+}
+
+
+/* ===== Home (UNTOUCHED) ===== */
+.home-text { 
+  margin-top: 20vh; 
+  text-align: left; 
+  /* Add subtle background glow */
+  padding: 1rem;
+  background: rgba(4, 11, 20, 0.4);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+
+/* Greeting and Tagline */
+.home-text .greeting {
+    font-size: 1.2rem;
+    color: var(--primary);
+    text-shadow: var(--shadow);
+    letter-spacing: 5px;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    animation: textFlicker 2s infinite alternate; /* Subtle flicker */
+}
+.home-text .tagline {
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-top: 1rem;
+    font-weight: 300;
+}
+
+/* H1 - Name */
+.home h1 { 
+  font-size: 4rem; /* Larger font */
+  color: var(--text);
+  margin-top: 0; 
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.home h1 .dot {
+  color: var(--primary);
+  text-shadow: var(--shadow);
+}
+
+/* H2 - Typing Text */
+.home h2 { 
+  font-size: 2.5rem; /* Larger font */
+  color: var(--primary); 
+  margin-top: .5rem; 
+  font-weight: 500;
+  text-shadow: 0 0 10px var(--primary), 0 0 20px rgba(0, 224, 255, 0.5); /* Stronger neon glow */
+  animation: neonGlow 1.5s infinite alternate; /* Animating the glow */
+}
+
+/* Glitch/Flicker Animation */
+@keyframes textFlicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+/* Neon Glow Animation */
+@keyframes neonGlow {
+    from {
+        text-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary);
+    }
+    to {
+        text-shadow: 0 0 10px var(--primary), 0 0 25px var(--primary), 0 0 40px rgba(0, 224, 255, 0.7);
+    }
+}
+
+
+/* ===== About (UNTOUCHED) ===== */
+.about { position: relative; overflow: hidden; }
+#aboutParticles { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+.about-container { position: relative; z-index: 2; }
+
+.about-grid {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+.about-card {
+    background: rgba(15,25,35,0.9); 
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,255,255,0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.3s ease;
+    border: 1px solid rgba(0,255,255,0.1);
+}
+.about-card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 0 30px var(--primary);
+    border-color: var(--primary);
+}
+
+.about-card i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px var(--primary);
+}
+.about-card h3 {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+.about-card p {
+    line-height: 1.6;
+}
+
+.skills-card {
+    text-align: center;
+}
+.skill-tags {
+    margin-top: 1.5rem;
+}
+.skill-tags span {
+    display: inline-block; 
+    margin: .3rem; 
+    padding: .5rem 1rem;
+    background: rgba(0,255,255,0.1); 
+    border: 1px solid rgba(0,255,255,0.3);
+    border-radius: 20px; 
+    transition: var(--transition);
+    cursor: default;
+}
+.skill-tags span:hover { 
+    background: var(--primary); 
+    color: #000; 
+    box-shadow: var(--shadow); 
+}
+
+/* ===== Certificates & Projects Layout (MODIFIED STYLES) ===== */
+.project-grid {
+  margin-top: 2rem;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;
+}
+
+/* Custom file upload styling for projects (new wrapper for spacing) */
+.project-file-wrapper {
+    margin-top: 0.8rem; 
+}
+
+
+/* --- Project Card Styling (Base) --- */
+.project-card {
+  background: rgba(15,25,35,0.9); padding: 0; border-radius: 10px; 
+  box-shadow: 0 0 15px rgba(0,255,255,0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden; 
+  display: flex; 
+  flex-direction: column;
+}
+.project-card:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 0 25px var(--primary); }
+
+.project-thumbnail {
+    width: 100%;
+    height: 180px; /* Ketinggian tetap untuk thumbnail */
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 2px solid var(--primary); 
+}
+
+.project-content {
+    padding: 1.5rem; 
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card h3 {
+    font-size: 1.6rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.project-card p {
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 1rem;
+    flex-grow: 1; 
+}
+
+.project-tools {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem; 
+}
+.project-tools span {
+    display: inline-block; 
+    padding: .3rem .8rem;
+    background: rgba(0,255,255,0.1); 
+    border-radius: 15px; 
+    font-size: 0.8em;
+    color: var(--primary);
+    border: 1px solid rgba(0,255,255,0.3);
+}
+
+.project-card .btn {
+    align-self: flex-start; 
+    margin-top: 0.5rem;
+}
+
+/* --- CERTIFICATE SPECIFIC STYLING (MODIFIED) --- */
+.project-card.certificate-card {
+    padding: 0; 
+}
+
+.certificate-image {
+    width: 100%;
+    height: 180px; /* Diatur sama seperti Project Thumbnail */
+    object-fit: cover; /* Menggunakan 'cover' agar gambar memenuhi ruang */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 2px solid var(--primary); 
+    padding: 0;
+    margin-bottom: 0; 
+    background-color: transparent; 
+}
+
+/* Penyesuaian konten di dalam kartu sertifikat */
+.project-card.certificate-card .project-content h3 {
+    font-size: 1.4rem; /* Sedikit lebih kecil dari Project H3 */
+    white-space: normal; 
+    overflow: auto;
+    text-overflow: clip;
+}
+.project-card.certificate-card .project-content p {
+    font-size: 1rem; 
+    margin-bottom: 1rem;
+}
+.project-card.certificate-card .project-content .btn {
+    padding: .8rem 1.5rem;
+    font-size: 1rem;
+}
+
+
+/* --- Input Fields Styling (applies to projects and certificates) --- */
+.add-project input, 
+.add-certificate input[type="text"],
+.add-certificate input[type="url"] {
+  padding: 0.8rem; margin: 0.5rem 0;
+  background: rgba(0,0,0,0.5); border: 1px solid var(--primary);
+  color: var(--text); border-radius: 5px;
+  width: 100%; max-width: 400px;
+  display: block; 
+}
+.add-project button, .add-certificate button {
+  margin-top: 1rem;
+}
+
+/* Custom file upload styling for certificates and projects (UNTOUCHED) */
+.file-upload-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block; 
+    margin: 0.5rem 0;
+    width: 100%; max-width: 400px; 
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    background: rgba(0,0,0,0.5);
+    padding: 0; 
+}
+
+.file-upload-wrapper input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0; 
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+.custom-file-upload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1rem;
+    color: var(--primary);
+    background: rgba(0,0,0,0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-right: 1px solid var(--primary); 
+}
+
+.custom-file-upload i {
+    margin-right: 0.5rem;
+    color: var(--primary);
+}
+
+.file-upload-wrapper:hover .custom-file-upload {
+    background-color: rgba(0, 224, 255, 0.2); 
+}
+
+#cert-image-name, #project-image-name {
+    display: block;
+    padding: 0.8rem 1rem;
+    color: var(--text);
+    font-size: 0.9em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1; 
+    width: calc(100% - 180px); 
+    display: inline-block;
+    vertical-align: middle;
+}
+.file-upload-wrapper .custom-file-upload {
+    width: 170px; 
+    float: left;
+}
+
+
+/* ===== Contact (UNTOUCHED) ===== */
+.contact-grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+.contact-card {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; padding: 1.5rem;
+  background: rgba(15,25,35,0.9);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,255,255,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  text-decoration: none; 
+  color: var(--text);
+  border: 1px solid transparent;
+}
+.contact-card i {
+  font-size: 3rem; margin-bottom: 0.5rem;
+  color: var(--primary);
+  text-shadow: 0 0 10px rgba(0, 224, 255, 0.6);
+}
+.contact-card h3 {
+  margin-bottom: 0.3rem;
+  color: var(--primary);
+}
+.contact-card span {
+  font-size: 0.9rem;
+  word-break: break-all;
+}
+
+/* Hover effects with color highlighting (UNTOUCHED) */
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px var(--primary);
+  border-color: var(--primary);
+}
+
+.contact-card.whatsapp:hover {
+  border-color: var(--wa-color);
+  box-shadow: 0 0 25px var(--wa-color);
+}
+.contact-card.whatsapp i { color: var(--wa-color); }
+
+.contact-card.linkedin:hover {
+  border-color: var(--linkedin-color);
+  box-shadow: 0 0 25px var(--linkedin-color);
+}
+.contact-card.linkedin i { color: var(--linkedin-color); }
+
+.contact-card.discord:hover {
+  border-color: var(--discord-color);
+  box-shadow: 0 0 25px var(--discord-color);
+}
+.contact-card.discord i { color: var(--discord-color); }
+
+.contact-card.github:hover {
+  border-color: #f0f6f9; 
+  box-shadow: 0 0 25px #f0f6f9;
+}
+.contact-card.github i { color: #f0f6f9; }
+
+
+/* ===== Footer (UNTOUCHED) ===== */
+footer {
+  text-align: center; padding: 1rem;
+  background: rgba(5,10,15,0.9);
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
